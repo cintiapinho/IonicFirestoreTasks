@@ -23,4 +23,11 @@ export abstract class Firestore<T extends { id: string }> {
     item.id = this.db.createId();
     return this.setItem(item, 'set');
   }
+
+  update(item: T): Promise<T> {
+    return this.setItem(item, 'update');
+  }
+  delete(item: T): Promise<void> {
+    return this.collection.doc<T>(item.id).delete();
+  }
 }
