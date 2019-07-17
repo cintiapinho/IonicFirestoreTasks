@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Task } from '../models/task.model';
-import { Firestore } from 'src/app/core/classes/firestore';
+
 import { AuthService } from 'src/app/core/services/auth.service';
+import { Firestore } from 'src/app/core/classes/firestore';
+import { Task } from '../models/task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class TasksService extends Firestore<Task> {
     super(db);
     this.init();
   }
+
   private init(): void {
     this.authService.authState$.subscribe(user => {
       if (user) {
@@ -20,4 +22,5 @@ export class TasksService extends Firestore<Task> {
       }
       this.setCollection(null);
     });
+  }
 }

@@ -3,9 +3,7 @@ import { Observable } from 'rxjs';
 
 export abstract class Firestore<T extends { id: string }> {
   protected collection: AngularFirestoreCollection<T>;
-
   constructor(protected db: AngularFirestore) {}
-
   protected setCollection(path: string, queryFn?: QueryFn): void {
     this.collection = path ? this.db.collection(path, queryFn) : null;
   }
@@ -15,7 +13,6 @@ export abstract class Firestore<T extends { id: string }> {
       [operation](item)
       .then(() => item);
   }
-
   getAll(): Observable<T[]> {
     return this.collection.valueChanges();
   }
