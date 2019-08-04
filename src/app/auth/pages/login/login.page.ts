@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
+
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AuthProvider } from 'src/app/core/services/auth.types';
 import { OverlayService } from 'src/app/core/services/overlay.service';
-import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -39,6 +40,7 @@ export class LoginPage implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
+
   get name(): FormControl {
     return this.authForm.get('name') as FormControl;
   }
@@ -54,8 +56,8 @@ export class LoginPage implements OnInit {
   changeAuthAction(): void {
     this.configs.isSignIn = !this.configs.isSignIn;
     const { isSignIn } = this.configs;
-    this.configs.action = isSignIn ? 'Login' : 'Cadastrar';
-    this.configs.actionChange = isSignIn ? 'Criar uma conta' : 'Já tenho uma conta';
+    this.configs.action = isSignIn ? 'Login' : 'Sign Up';
+    this.configs.actionChange = isSignIn ? 'Create account' : 'Already have an account';
     !isSignIn
       ? this.authForm.addControl('name', this.nameControl)
       : this.authForm.removeControl('name');

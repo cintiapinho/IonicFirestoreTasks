@@ -7,4 +7,4 @@ const routes: Routes = [{ path: '', loadChildren: './pages/login/login.module#Lo
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthRoutingModule {}
+export class AuthRoutingModule { }

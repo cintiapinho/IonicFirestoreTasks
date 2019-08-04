@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { AuthService } from 'src/app/core/services/auth.service';
-import { Firestore } from 'src/app/core/classes/firestore';
+import { Firestore } from 'src/app/core/classes/firestore.class';
 import { Task } from '../models/task.model';
 
 @Injectable({

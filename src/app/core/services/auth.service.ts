@@ -15,6 +15,7 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth) {
     this.authState$ = this.afAuth.authState;
   }
+
   get isAuthenticated(): Observable<boolean> {
     return this.authState$.pipe(map(user => user !== null));
   }
@@ -48,6 +49,7 @@ export class AuthService {
           .then(() => credentials)
       );
   }
+
   private signInWithPopup(provider: AuthProvider): Promise<auth.UserCredential> {
     let signInProvider = null;
 

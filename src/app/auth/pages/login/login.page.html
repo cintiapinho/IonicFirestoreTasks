@@ -40,6 +40,7 @@
         </ion-note>
       </ion-item>
     </ng-container>
+
     <ion-item>
       <ion-icon
         name="mail"
@@ -52,8 +53,7 @@
         formControlName="email"
         inputmode="email"
         autofocus="true"
-      >
-      </ion-input>
+      ></ion-input>
       <ion-note
         slot="end"
         color="danger"
@@ -66,7 +66,7 @@
         color="danger"
         *ngIf="email.dirty && email.hasError('email')"
       >
-        Email Inválido
+        Invalid email
       </ion-note>
     </ion-item>
 
@@ -93,7 +93,7 @@
         color="danger"
         *ngIf="password.dirty && password.hasError('minlength')"
       >
-        Min 6 caracteres
+        Min 6 characters
       </ion-note>
     </ion-item>
 
@@ -121,6 +121,6 @@
       name="logo-facebook"
       slot="start"
     ></ion-icon>
-    Login com Facebook
+    Login with Facebook
   </ion-button>
 </ion-content>
